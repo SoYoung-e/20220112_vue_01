@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05.vue_for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <!-- v-for 디렉티브는 반복문으로 데이터를 하나씩 차례대로 꺼내어 사용할 때 유용 -->
+    <div id="main">
+        <h2>좋아하는 과일을 순서대로 나열하기</h2>
+        <ol>
+            <li v-for="i in Fruits">
+                {{i.fruitItem}} ({{i.fruitNum}})
+            </li>
+        </ol>
+    </div>
+    <script>
+        new Vue({
+            el:"#main",
+            data:{
+                Fruits : [
+                    {fruitItem : "사과", fruitNum : 5},
+                    {fruitItem : "바나나", fruitNum : 12},
+                    {fruitItem : "포도", fruitNum : 7},
+                    {fruitItem : "자두", fruitNum : 14},
+                    {fruitItem : "수박", fruitNum : 3}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

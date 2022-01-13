@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_vue.ex</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 실습문제 : v-for 디렉티브로 고객의 이름과 나이를 출력하는 프로그램을 구성하시오 
+        예시 ) [최종 출력결과] 이름 : 000 , 나이 : 00 세
+        출력소스 : 홍길동(27세), 이순신(30세), 김유신(26세),
+    -->
+    <div id="app">
+        <h2>고객정보</h2>
+        <ul>
+            <li v-for="i in info">
+                이름 :{{i.name}}, 나이 : {{i.age}}세
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                info :[
+                    {name :"홍길동", age:27},
+                    {name :"이순신", age:30},
+                    {name :"김유신", age:26},
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_vue_bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>     
+    <style>
+        .redStyle{color:red;}
+        #blueBg{background-color:#08f;color:#fff;}
+        .bg1{background-color:#aaf;height:80px;}
+    </style>
+</head>
+<body>
+    <!-- v-bind의 역할 : vue 인스턴스 내부에서 선언된 data의 속성값(들)을 변수처럼 이용하여 HTML문서상의 문자열로 구성된 변수자리에 그 값을 넣어준다.-->
+    <div id="main">
+        <h2 v-bind:class="colorName+'Style'">안녕하세요~~</h2>
+        <p v-bind:id="idColor">만나서 반갑습니다.</p>
+        <!-- 이미지 배경색상을 #aaf로 vue 인스턴스를 활용하여 결과를 도출 -->
+        <img v-bind:class="bgColor" src="./img/snoopy1.png" alt="">
+    </div>
+
+
+    <script>
+
+    let app = new Vue({
+        el:"#main",
+        data:{
+            colorName:'red',
+            idColor:'blueBg',
+            bgColor: 'bg1'
+        }
+    })
+    </script>
+</body>
+</html>

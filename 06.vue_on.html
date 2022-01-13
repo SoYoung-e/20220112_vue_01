@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06.vue_on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 
+        v-on:이벤트 명 = "함수 호출문" === 
+        
+        선택자.이벤트명 = 함수호출문 () - x
+        선택자.이벤트명 = 함수호출문  - o
+
+        <button onclick="함수호출문 ();"></button>
+    -->
+    <div id="app">
+        <h2>{{resultMessage}}</h2>
+        <button v-on:click="funcChange1">나를 눌러봐~~</button>
+        <!-- 마우스 오버시 h2태그에 "마우스가 올라갔어요"/ 마우스 아웃시 h2태그에 "마우스가 나갔어요!!"-->
+        <button v-on:mouseover="funcChange2" v-on:mouseout="funcChange3">내위에 커서를 올려봐~~</button>
+    </div>
+
+    <script>
+        new Vue({
+            el:"#app",
+            data : {
+                resultMessage : "아래 버튼의 이벤트를 발생시키세요~~!!"
+            },
+            methods:{ //기존 자바스크립트에서 function의 역할을 담당
+                funcChange1(){
+                    console.log(this)//Vue를 구성한 인스턴스 객체
+                    console.log(this.$el);
+                    console.log(this._data);
+                    console.log(this.resultMessage);
+                    this.resultMessage = "마우스가 버튼을 클릭한 상태입니다."
+                },
+                funcChange2(){
+                    this.resultMessage = "마우스가 올라갔어요"
+                },
+                funcChange3(){
+                    this.resultMessage = "마우스가 나갔어요!!"
+                },
+                
+            }
+        })
+    </script>
+</body>
+</html>
